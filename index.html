@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>История вооружения и спец техники</title>
+	<link rel="stylesheet" href="CSS/style.css" type="text/css"/>
+</head>
+
+<body>
+<div class = "back">
+<div id ="header" style = "display: flex;"> </div>
+
+<div style = "daisplay: flex; width:100%">
+<div id ="menu" class = "block_style menu" style = "flex: 200px;"> 
+
+<nav class="four">
+  <ul class="topmenu">
+<li><a href="#topmenu" onclick="openPage('content.html'); return false;">Главная</a></li>
+<br /><li><a href="#">Танки / бронемашины<i class="fa fa-angle-down"></i></a>
+	<ul class="submenu">
+<br /><li><a href="#topmenu" onclick="openPage('Page/brm.html'); return false;">БРМ-1К</a></li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/T-34.html'); return false;">Т-34</a></li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/T-72.html'); return false;">Т-72</a></li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/T-90.html'); return false;">Т-90</a></li>
+	</ul>
+	</li>
+<br /><li><a href="#">Ракетные коплексы<i class="fa fa-angle-down"></i></a>
+	<ul class="submenu">
+<br /><li><a href="#topmenu" onclick="openPage('Page/iskander.html'); return false;">Искандер</a></li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/bm-21.html'); return false;">БМ-21</a></li>
+	</ul>
+	</li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/galery.html'); return false;">Фотогалерея</a></li>
+<br /><li><a href="#topmenu" onclick="openPage('Page/kontakt.html'); return false;">Контакты</a></li>
+  </ul>
+</nav>
+</div>
+<div id ="content" class = "block_style" style = " flex: 100%;"> </div>
+</div>
+
+
+<div id ="footer" class = "block_style_flex"> </div>
+</div>
+
+<script>
+function loadHTML(sURL) {
+  var request=null;// пытаемся создать объект для MSXML 2 и старшеs
+  if(!request) try {
+    request=new ActiveXObject('Msxml2.XMLHTTP');
+  } catch (e){} // не вышло... попробуем для MSXML 1
+  if(!request) try {
+    request=new ActiveXObject('Microsoft.XMLHTTP');
+  } catch (e){} // не вышло... попробуем для Mozilla
+	if(!request) try {
+    request=new XMLHttpRequest();
+  } catch (e){}
+  if(!request) // ничего не получилось...
+    return ""; // делаем запрос
+  request.open('GET', sURL, false);
+  request.send(null);  // возвращаем текст
+  return request.responseText;
+}
+function openPage (sURL) {
+mypagecontent = document.getElementById('content')
+mypagecontent.innerHTML = loadHTML(sURL);
+}
+
+mypagecontent = document.getElementById('header')
+mypagecontent.innerHTML = loadHTML('header.html');
+mypagecontent = document.getElementById('content')
+mypagecontent.innerHTML = loadHTML('content.html');
+mypagecontent = document.getElementById('footer')
+mypagecontent.innerHTML = loadHTML('footer.html');
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
+
+						
