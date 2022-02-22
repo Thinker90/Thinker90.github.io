@@ -16,7 +16,7 @@
 }
 
 .logo {
-	background-image: url(http://localhost/konkurs/image/star.png);
+	background-image: url(https://raw.githubusercontent.com/Thinker90/Thinker90.github.io/main/Image/star.png);
     background-repeat: no-repeat;
 	background-size: 100%;
 	border-style: double;
@@ -73,7 +73,7 @@ H2 {
         height: 200px;
       }
 	.exmp2 {
-        background-image: url(http://localhost/konkurs/image/banner.jpg);
+        background-image: url(https://raw.githubusercontent.com/Thinker90/Thinker90.github.io/main/Image/banner.jpg);
         background-repeat: no-repeat;
         background-position: 0px -100px;
         background-size: cover;
