@@ -51,12 +51,6 @@ padding: 10px;
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
-<div class = "itmenu">
-	<div class = "but" id = "createfile">Сохранить как JPG
-	</div>
-</div>
-
-
 <body>
 
 <div class = "listgr">
@@ -87,19 +81,6 @@ padding: 10px;
 
 
 <script>
-
-createfile.onclick = function() {
-var fso = new ActiveXObject("Scripting.FileSystemObject");
-var f2= fso.GetFile("C:\\Users\\Cube-admin\\Desktop\\грамота.HTML");
-alert(f2.Name);
-/*
-  // Копируем файл в  папку С:\ C:\Users\Cube-admin\Desktop
-  f2.Copy("C:\\грамот1.HTML");
-alert("alarm!");
-f2.Delete();*/
-}
-
-
 //H-horizontal V-vertical
 let idH = 1; 	//начальный ID столбца
 	idV= 1; 	//начальный ID строки
