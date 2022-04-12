@@ -1,0 +1,190 @@
+<style>
+.listgr {
+	width: 200mm; /* ширина 210*/
+	height: 287mm; /* высота 287*/
+	/*padding: 15mm 15mm 15mm 25mm; /* внутренние отступы - верх, право, низ, лево */
+	margin: 0px auto;/* выравнивание по центру */ 
+	/* box-shadow: 10px 10px 20px black;  небольшая тень для объемности */
+	background-color: white;/* цвет фона в блоке */
+	font-family:"Times New Roman"; /* нужный шрифт */
+	font-size: 14pt;
+	line-height: 1.5;
+	overflow: hidden;
+	position: relative;
+}	
+.headit {height: 200px;display: flex;position: absolute;left: 0px;width: 100%;	top: 0px;}
+.colmhead{width: 50%;height: 100%;flex: auto;margin: 30px;}
+.contentit{height: 500px;position: absolute;left: 0px;width: 100%;	top: 300px;text-align: center;}
+.sert {font-size: 100;color: #0088ff;margin:0;}
+.textnagr {font-size: 20px;color: #8b8b8b;font-weight: bold;}
+.footerit {height: 200px;display: flex;position: absolute;left: 0px;width: 100%;top: 900px;}
+
+<!-- Подложка -->	
+.cellback {background:(0 152 253 / 0%); height:12px;width:20px;}
+.celltxt {text-align: center;font-weight:900;font-size:10px;}
+.cellcolor20 {color:rgb(0 152 253 / 20%);}
+.cellcolor30 {color:rgb(0 152 253 / 30%);}
+.cellcolor40 {color:rgb(0 152 253 / 40%);}
+.cellcolor60 {color:rgb(0 152 253 / 60%);}
+.cellcolor80 {color:rgb(0 152 253 / 80%);}
+.cellcolor100 {color:rgb(0 152 253 / 100%);transform: scaleX(-1);}
+table {border-collapse: collapse ;width:100%;height:100%;}
+
+.itmenu {
+    width: 200px;
+    height: 500px;
+    position: absolute;
+    background: aqua;
+}
+.but {
+padding: 10px;
+    text-align: center;
+    background: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px black;
+}
+
+</style>
+<head>
+  <title>Грамота</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<div class = "itmenu">
+	<div class = "but" id = "createfile">Сохранить как JPG
+	</div>
+</div>
+
+
+<body>
+
+<div class = "listgr">
+<div class = "headit">
+	<div class = "colmhead"><img style = "height:100%" src = "https://it-cube39.ru/wp-content/uploads/2021/01/it-cube-logo-text2.svg"></div>
+	<div class = "colmhead" style = "text-align: right;"><img style = "height:100%" src = "https://admoblkaluga.ru/upload/iblock/23b/23b32408d78b18f6b153ebb532db23c8.png"></div>
+</div>
+<div class = "contentit">
+	<p class = "sert">Сертификат</p>
+	<p class = "textnagr">Награждатся</p>
+	<p class = "textnagr">Василий Пупкин</p>
+	<p class = "textnagr">За участие в мастер классе</p>
+	<p class = "textnagr">по системному администрированию</p>
+	<p class = "textnagr">в рамках конкурсапо системному администрированию "Вкючай" </p>
+</div>
+
+<div class = "footerit">
+	<div class = "colmhead">
+		<p class = "textnagr">Руководитель</p>
+		<p class = "textnagr">ЦЦОД "IT-Cube" г.Сатка</p>
+		<p class = "textnagr">2022 г.</p>
+	</div>
+	<div class = "colmhead" style = "text-align: right;">
+		</br>
+		<p class = "textnagr">Печать IMG Михайлов А.В.</p>
+	</div>
+</div>
+
+
+<script>
+
+createfile.onclick = function() {
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var f2= fso.GetFile("C:\\Users\\Cube-admin\\Desktop\\грамота.HTML");
+alert(f2.Name);
+/*
+  // Копируем файл в  папку С:\ C:\Users\Cube-admin\Desktop
+  f2.Copy("C:\\грамот1.HTML");
+alert("alarm!");
+f2.Delete();*/
+}
+
+
+//H-horizontal V-vertical
+let idH = 1; 	//начальный ID столбца
+	idV= 1; 	//начальный ID строки
+	Hw = 40; 	//размерность столбца
+	Vw= 90;		//размерность строки
+	h=1;		//начало анимации ID столбца
+	v=1;		//начало анимации ID строки
+	movespeedmax = 300; //скорость анимации
+	movespeedmin = 100; //скорость анимации
+	mov="right";
+document.write('<div class= "backside"><table id="train" style = "left:0px;">');
+
+while (idV<=Vw) {
+	document.write('<tr>');
+		while (idH<=Hw) {
+			document.write('<td class = "cellback celltxt cellcolor20" id="'+idV+':'+idH+'">'+getRandomIntInclusive(0,1)+'</td>');				
+			idH++;
+		}
+	idH = 1;
+	document.write('</tr>');
+	idV++
+}
+
+document.write('</div></table>');
+
+let i=1;line=0;
+	while(line<=Hw){
+		start(getRandomIntInclusive(1,Hw),line,getRandomIntInclusive(movespeedmin,movespeedmax));
+		line++;}
+	
+function start(i,g,sp){
+	let start = Date.now();
+      let timer = setInterval(function() {
+		if (i==Vw+6) {i=1;}
+		pixel(i,g);		
+		i++;		
+      }, sp);	
+}
+
+function pixel(h,v) {	
+	if(document.getElementById((h-6)+":"+v)){
+		document.getElementById((h-6)+":"+v).classList.remove("cellcolor30");
+		document.getElementById((h-6)+":"+v).classList.add("cellcolor20");}
+	if(document.getElementById((h-5)+":"+v)){
+		document.getElementById((h-5)+":"+v).classList.remove("cellcolor40");
+		document.getElementById((h-5)+":"+v).classList.add("cellcolor30");}
+	if(document.getElementById((h-4)+":"+v)){
+		document.getElementById((h-4)+":"+v).classList.remove("cellcolor60");
+		document.getElementById((h-4)+":"+v).classList.add("cellcolor40");}
+	if(document.getElementById((h-3)+":"+v)){
+		document.getElementById((h-3)+":"+v).classList.remove("cellcolor80");
+		document.getElementById((h-3)+":"+v).classList.add("cellcolor60");}
+	if(document.getElementById((h-2)+":"+v)){
+		document.getElementById((h-2)+":"+v).classList.remove("cellcolor100");
+		document.getElementById((h-2)+":"+v).classList.add("cellcolor80");} 
+	if(h<=Vw){
+		document.getElementById(h+":"+v).classList.remove("cellcolor20");
+		document.getElementById(h+":"+v).classList.add("cellcolor100");}
+	return true;
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+}
+function IT(ith,itv,itheight,itwidth){
+	let te=ith; st=itv;	
+	while (st<=itwidth) {
+		document.getElementById(te+":"+st).classList.remove("cellcolor20");
+		document.getElementById(te+":"+st).classList.add("cellcolor100");
+		while (te<=itheight) {
+			document.getElementById(te+":"+st).classList.remove("cellcolor20");
+			document.getElementById(te+":"+st).classList.add("cellcolor100");			
+			te++;
+		}
+	te = ith;
+	st++
+	}
+}	
+
+</script>
+
+
+
+
+</div>
+</body>
